@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "puppeteer": "^20.1.1", // Replace with the latest version or the version you prefer
-    "ws": "^8.13.0" // Replace with the latest version or the version you prefer
+    "puppeteer": "^20.1.1",
+    "ws": "^8.13.0"
   }
 }
