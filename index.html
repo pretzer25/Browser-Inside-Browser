@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Puppeteer Control</title>
+</head>
+<body>
+  <input type="text" id="url" placeholder="Enter URL to navigate to">
+  <button onclick="navigate()">Navigate</button>
+
+  <script>
+    const ws = new WebSocket('ws://skibidirizzproxy.vercel.app'); // Use the Vercel deployment URL
+
+    ws.onopen = () => {
+      console.log('WebSocket connection opened');
+    };
+
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      console.log('Received:', data);
+    };
+
+    function navigate() {
+      const url = document.getElementById('url').value;
+      ws.send(JSON.stringify({ action: 'navigate', url }));
+    }
+  </script>
+</body>
+</html>
